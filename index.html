@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Măr Roșu 3D — Studio Procedural Three.js</title>
+    <title>Suport Igienic Tacâmuri 3D (.3mf) — Studio Procedural Three.js</title>
     <style>
       * {
         box-sizing: border-box;
@@ -34,32 +34,37 @@
         top: 16px;
         left: 16px;
         z-index: 10;
-        background: rgba(15, 23, 42, 0.78);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(148, 163, 184, 0.25);
-        border-radius: 10px;
-        padding: 10px 14px;
+        background: rgba(15, 23, 42, 0.82);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 12px;
+        padding: 12px 14px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 9px;
         pointer-events: auto;
-        max-width: 260px;
+        max-width: 320px;
       }
       .studio-hud h1 {
         font-size: 13px;
         font-weight: 700;
-        letter-spacing: 0.4px;
+        letter-spacing: 0.3px;
         color: #f8fafc;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 7px;
       }
       .studio-hud .dot {
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #ef4444;
-        box-shadow: 0 0 8px #ef4444;
+        background: #e06d42;
+        box-shadow: 0 0 8px #e06d42;
+      }
+      .studio-subtitle {
+        font-size: 11px;
+        color: #cbd5e1;
+        line-height: 1.35;
       }
       .studio-controls {
         display: flex;
@@ -67,36 +72,67 @@
         flex-wrap: wrap;
       }
       .studio-btn {
-        background: rgba(30, 41, 59, 0.9);
+        background: rgba(30, 41, 59, 0.92);
         color: #e2e8f0;
-        border: 1px solid rgba(148, 163, 184, 0.3);
+        border: 1px solid rgba(148, 163, 184, 0.32);
         border-radius: 6px;
-        padding: 4px 9px;
+        padding: 5px 9px;
         font-size: 11px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.15s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
       }
       .studio-btn:hover {
-        background: rgba(51, 65, 85, 0.95);
-        border-color: #f87171;
+        background: rgba(51, 65, 85, 0.96);
+        border-color: #f97316;
       }
       .studio-btn.active {
-        background: #b91c1c;
-        border-color: #f87171;
+        background: #c2410c;
+        border-color: #fb923c;
         color: #ffffff;
+      }
+      .studio-btn.download-btn {
+        background: #0f766e;
+        border-color: #2dd4bf;
+        color: #ffffff;
+        width: 100%;
+        justify-content: center;
+        padding: 6px 10px;
+        margin-top: 2px;
+      }
+      .studio-btn.download-btn:hover {
+        background: #115e59;
       }
     </style>
   </head>
   <body>
     <div id="app">
       <div class="studio-hud">
-        <h1><span class="dot"></span> Măr Roșu 3D (C¹ Parametric)</h1>
-        <div class="studio-controls">
-          <button id="btn-turntable" class="studio-btn active" type="button">Turntable</button>
-          <button id="btn-idle" class="studio-btn" type="button">Static</button>
-          <button id="btn-wireframe" class="studio-btn" type="button">Wireframe</button>
+        <h1><span class="dot"></span> Suport Igienic Tacâmuri (.3mf)</h1>
+        <div class="studio-subtitle">
+          Extensie înaltă V+U (fără atingerea părții cu care mănânci) + opritor posterior cu capotă anti-basculare.
         </div>
+        <div class="studio-controls">
+          <button id="btn-spoon" class="studio-btn active" type="button">Lingură</button>
+          <button id="btn-fork" class="studio-btn" type="button">Furculiță</button>
+          <button id="btn-knife" class="studio-btn" type="button">Cuțit</button>
+          <button id="btn-print-ready" class="studio-btn" type="button">Doar Suport</button>
+          <button id="btn-turntable" class="studio-btn" type="button">Turntable</button>
+          <button id="btn-wireframe" class="studio-btn" type="button">Wireframe</button>
+          <button id="btn-apple" class="studio-btn" type="button">Măr 3D</button>
+        </div>
+        <a
+          id="btn-download-3mf"
+          class="studio-btn download-btn"
+          href="/suport-tacamuri.3mf"
+          download="suport-tacamuri.3mf"
+        >
+          ⬇ Descarcă Suport 3D (.3mf — 112×44×34 mm)
+        </a>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
