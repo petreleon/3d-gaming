@@ -1,0 +1,6 @@
+{
+  "name": "3d-gaming-orchestrator",
+  "displayName": "3D Gaming Multi-Agent Orchestrator",
+  "description": "Sistem ierarhic de subagenți Coordonatori, Generatori și Verificatori exigenți (cod, vizual multi-unghi și matrice de imagini pentru animații) pentru 3D Gaming.",
+  "version": "1.0.0"
+}
